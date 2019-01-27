@@ -8,8 +8,12 @@ SOURCES = $(shell echo src/*.c)
 HEADERS = $(shell echo inc/*.h)
 OBJECTS = obj/map.o obj/llist.o
 
+all: $(OBJDIR) $(BUILDDIR) $(TARGET)
 
-all: $(TARGET)
+$(OBJDIR) :
+	mkdir $(OBJDIR)
+$(BUILDDIR) :
+	mkdir $(BUILDDIR)
 
 $(TARGET) : $(OBJECTS)
 	dlltool --output-def $(DEFFILES) --kill-at --dllname $(TARGET) $^
