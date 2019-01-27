@@ -1,0 +1,13 @@
+liblist
+
+# Temp files
+*~
+
+# Object files
+obj/*.*
+
+# Code coverage intermediate and output files
+*.gcov
+*.gcda
+*.gcno
+
