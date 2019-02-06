@@ -889,7 +889,7 @@ int trivial_comperator ( llist_node first, llist_node second )
 }
 
 // Just dll test functions
-int add(int a, int b)
+int __declspec(dllexport) add(int a, int b)
 {
 /* Python Test Code 
 from ctypes import *

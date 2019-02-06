@@ -16,15 +16,15 @@ $(BUILDDIR) :
 	mkdir $(BUILDDIR)
 
 $(TARGET) : $(OBJECTS)
-	dlltool --output-def $(DEFFILES) --kill-at --dllname $(TARGET) $^
-	dlltool --output-lib $(AFILES) --input-def $(DEFFILES) --kill-at --dllname $(TARGET) $^
+#	dlltool --output-def $(DEFFILES) --kill-at --dllname $(TARGET) $^
+#	dlltool --output-lib $(AFILES) --input-def $(DEFFILES) --kill-at --dllname $(TARGET) $^
 	gcc $^ -o $(TARGET) -mwindows -Wall -L. -shared
         
 obj/map.o : src/map.c
-	gcc $^ -Iinc -shared -fPIC -fprofile-arcs -ftest-coverage -O0 -g -Wall -o $@
+	gcc -c $^ -Iinc -o $@
 
 obj/llist.o : src/llist.c
-	gcc $^ -Iinc -shared -fPIC -fprofile-arcs -ftest-coverage -O0 -g -Wall -o $@
+	gcc -c $^ -Iinc -o $@
     
 clean:
 	del $(OBJDIR)\* /Q
